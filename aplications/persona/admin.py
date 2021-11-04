@@ -13,7 +13,8 @@ class ColaboradoresAdmin(admin.ModelAdmin):
         'last_name',
         'job',
         'departamento',
-        'full_name'
+        'full_name',
+        'id',
     )
 
     def full_name(self, obj):
@@ -24,7 +25,7 @@ class ColaboradoresAdmin(admin.ModelAdmin):
 #         Inline,
 #     ]
 #    raw_id_fields = ('first_name',)
-    readonly_fields = ('job',)
+    #readonly_fields = ('job',)
     search_fields = ('first_name','job','departamento',)
 #     date_hierarchy = ''
     ordering = ('first_name',)

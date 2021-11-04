@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Buscar colaborador...</h1>
+
+        <form action="" method="GET">{% csrf_token %}
+            <input type="text" id="kword" name="kword" placeholder="Nombe aquí">
+            <button type="submit">Buscar</button>
+        </form>
+
+        <ul>
+        {% for c in lista_por_kw %}
+            <li>{{c}}</li>
+        {% endfor %}
+        </ul>
+
+</body>
+</html>
