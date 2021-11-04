@@ -15,12 +15,16 @@ SECRET_KEY = 'django-insecure-t-mf+y@t#bxj7+#ha6q0zjalehokrl%%j9!7td)=c!^n4x2djf
 # Application definition
 
 INSTALLED_APPS = [
+    # internal apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # third party apps
+    'ckeditor',
+    # custom apps
     'aplications.departamento',
     'aplications.persona',
     'aplications.home',
