@@ -30,6 +30,7 @@ class Colaborador(models.Model):
 
     first_name = models.CharField('Nombre', max_length=15)
     last_name = models.CharField('Apellido', max_length=15)
+    full_name  = models.CharField('Nombre Completo', max_length=30, blank=True)
     job = models.CharField('Cargo', max_length=50, choices=JOB_CHOICE)
     departamento = models.ForeignKey(Departamento, on_delete=models.CASCADE)
     foto = models.ImageField('Imagen de Perfil', upload_to='colaborador', blank=True, null=True, height_field=200, width_field=None, max_length=None)

@@ -17,8 +17,8 @@ class ColaboradoresAdmin(admin.ModelAdmin):
         'id',
     )
 
-    def full_name(self, obj):
-        return obj.first_name + ' ' + obj.last_name
+    # def full_name(self, obj):
+    #     return obj.first_name + ' ' + obj.last_name
 
     list_filter = ('job',)
 #     inlines = [
