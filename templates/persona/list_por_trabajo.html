@@ -8,12 +8,13 @@
 </head>
 <body>
     <h1>Lista de Colaboradores</h1>
+
     <ul>
-        {% for c in lista_por_trabajo %}
-            <li> {{c.first_name}} </li>
+        {% for c in lista_por_cargo %}
+            <li> {{ c }} </li>
             
         {% endfor %}
     </ul>
-   {{ objects }}
+    
 </body>
 </html>

@@ -56,3 +56,24 @@ class ListarHabilidades(ListView):
         print(habilidades.habilidad.all())
         
         return [habilidades]
+
+
+class ListarPorCargo(ListView):
+    template_name = "persona/list_por_trabajo.html"
+    context_object_name = 'lista_por_cargo'
+    # queryset = Colaborador.objects.filter(
+    #     job = '0'
+    # )
+
+    def get_queryset(self):
+        cargo = self.kwargs['cargo']
+        lista = Colaborador.objects.filter(
+            job=cargo
+            )
+            
+        # cargo = self.request.GET.get('job','')
+        # lista = Colaborador.objects.filter(
+        #     job = cargo
+        # )
+
+        return lista
