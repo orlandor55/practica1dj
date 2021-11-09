@@ -1,14 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Detalle del empleado</h1>
+{% extends 'base.html' %}
+{% load static %}
 
-    {{colaborador}} es nuestro {{titulo}}
-</body>
-</html>
+
+
+{% block title %}
+    Detalle de {{colaborador}}        
+{% endblock title %}
+
+
+{% block content %}
+
+{% include 'includes/header.html' %}
+
+<div class="grid-container ">
+    <div class="grid-x ">
+        <h1 class="cell large-7 " style="text-align: center;">Detalle del empleado</h1>
+            <div class="cell large-7">
+                <div class="card" style="width: 300px;">
+                    <div class="card-divider">
+                        {{colaborador}} | {{colaborador.job}}
+                    </div>
+                    <img src="{% static 'img/avatar_vicky.jpeg' %}">
+                    <div class="card-section">
+                      <h4>{{colaborador}}</h4>
+                      <p>{{colaborador.bio}}</p>
+                    </div>
+                </div>
+                <div class="cell large-5">
+                    <h3>{{colaborador}} es nuestro {{titulo}}</h1>
+    
+                </div> 
+            </div>
+            
+
+
+
+
+
+
+
+
+    
+
+   
+{% endblock content %}

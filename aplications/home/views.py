@@ -10,8 +10,11 @@ from django.views.generic import (
 
 from .models import Prueba
 
-class PruebaView(TemplateView):
-    template_name = 'home/prueba.html'
+from .forms import PruebaForm
+
+
+class HomeView(TemplateView):
+    template_name = 'home/index.html'
 
 
 
@@ -32,4 +35,5 @@ class ListarPrueba(ListView):
 class PruebaCreateView(CreateView):
     model = Prueba
     template_name = "home/add.html"
-    fields = ['titulo','subtitulo', 'cantidad']
+    form_class = PruebaForm
+    success_url = '/'

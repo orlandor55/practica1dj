@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block title %}
+    Home        
+{% endblock title %}
+
+
+{% block content %}
+    
+
+{% include 'includes/header.html' %}
+
+<!-- Inicio slider de portada -->
+
+<div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
+    <div class="orbit-wrapper">
+      <div class="orbit-controls">
+        <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
+        <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
+      </div>
+      <ul class="orbit-container">
+        <li class="is-active orbit-slide">
+          <figure class="orbit-figure">
+            <img class="orbit-image" src="{% static 'img/colaboradores1.jpg' %}" alt="Space">
+            <figcaption class="orbit-caption">Space, the final frontier.</figcaption>
+          </figure>
+        </li>
+        <li class="orbit-slide">
+          <figure class="orbit-figure">
+            <img class="orbit-image" src="{% static 'img/colaboradores2.png' %}" alt="Space">
+            <figcaption class="orbit-caption">Lets Rocket!</figcaption>
+          </figure>
+        </li>
+      </ul>
+    </div>
+    <nav class="orbit-bullets">
+      <button class="is-active" data-slide="0">
+        <span class="show-for-sr">First slide details.</span>
+        <span class="show-for-sr" data-slide-active-label>Current Slide</span>
+      </button>
+      <button data-slide="1"><span class="show-for-sr">Second slide details.</span></button>
+    </nav>
+  </div>
+
+  <!-- Fin slider de portada -->
+  <!-- bloque de bienvenida -->
+
+  <div class="grid-x align-center">
+
+        <h4 class="cell large-7" style="line-height: 90%; text-align: center;">Bienvenido(a) al sistema de registro de colaboradores</h4>
+
+    <div class="cell large-7 callout success ">
+        <h5>Registre y administre a sus colaboradores</h5>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id similique vitae ut atque, exercitationem velit aspernatur nostrum minima distinctio quia fugit quibusdam tempora. Veniam molestias pariatur hic qui unde voluptates.</p>
+        <a href="{% url 'persona_app:colaboradores' %}">Ver empleados</a>
+      </div>
+
+  </div>
+
+
+
+  <!-- Fin bloque de bienvenida -->
+
+{% endblock content %}

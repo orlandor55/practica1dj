@@ -22,10 +22,10 @@ class Habilidades(models.Model):
 class Colaborador(models.Model):
 
     JOB_CHOICE = (
-        ('0', 'Contador'),
-        ('1', 'Administrador'),
-        ('2', 'Economista'),
-        ('3', 'Otros'),
+        ('Contador', 'Contador'),
+        ('Administrador', 'Administrador'),
+        ('Economista', 'Economista'),
+        ('Otros', 'Otros'),
     )
 
     first_name = models.CharField('Nombre', max_length=15)

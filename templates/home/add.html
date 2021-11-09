@@ -8,6 +8,11 @@
 </head>
 <body>
     <h1>Create View Exitoso</h1>
-    {{form}}
+    <form action="" method="post"> {% csrf_token %}
+       
+        {{form.as_p}}
+        
+        <button type="submit">Crear</button>
+    </form>
 </body>
 </html>

@@ -16,9 +16,17 @@ from .models import Colaborador
 
 class ListColaboradores(ListView):
     template_name = 'persona/list_all.html'
-    model = Colaborador
     context_object_name = 'lista_colaboradores'
-    paginate_by = 2
+    paginate_by = 4
+
+    def get_queryset(self):
+        palabra_clave = self.request.GET.get('kword','')
+        lista = Colaborador.objects.filter(
+            full_name__icontains = palabra_clave
+        )
+
+        return lista
+
 
 
 
