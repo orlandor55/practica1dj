@@ -16,36 +16,28 @@
 <div class="grid-container ">
     <div class="grid-x ">
         <h4 class="cell large-7 " style="text-align: center;">Lista de Colaboradores</h4>
-        <form class="cell grid-x grid-margin-x" method="get"> {% csrf_token %}
-            <div class="cell large-7">
-
-                    <input type="text" id="kword" name="kword" placeholder="Buscar colaborador...">
-            </div>
-            <div class="cell large-2">
-
-                <button type="submit" class="button">Buscar</button>
-                
-            </div>           
-        </form>
         <div class="cell  ">
             <table>
                 <thead>
                   <tr>
-                    <th width="50">id</th>
-                    <th width="150">Nombres</th>
-                    <th width="150">Apellidos</th>
-                    <th width="150">Departamenos</th>
-                    <th width="150">Acción</th>
+                    <th width="">id</th>
+                    <th width="">Nombres</th>
+                    <th width="">Apellidos</th>
+                    <th width="">Departamenos</th>
+                    <th width="25"  style="text-align: center;">Acción</th>
+                   
                   </tr>
                 </thead>
                 <tbody>
-                    {% for c in lista_colaboradores %}
+                    {% for c in lista_colaboradores_admin %}
                     <tr>
                             <td>{{c.id}}</td>
                             <td>{{c.first_name}}</td>
                             <td>{{c.last_name}}</td>
                             <td>{{c.departamento}}</td>
-                            <td><a class="button secondary" href="{% url 'persona_app:detalle_colaborador' c.id %}">Ver</a>
+                            <td><a class="button success" style="color: white;" href="{% url 'persona_app:actualizar' c.id %}">editar</a>
+                            </td>
+                            <td><a class="button alert" href="{% url 'persona_app:eliminar' c.id %}">Eliminar</a>
                             </td>
                     </tr>
                     {% endfor %}

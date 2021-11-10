@@ -13,6 +13,11 @@ urlpatterns = [
         name='colaboradores'
     ),
     path(
+        'lista-colaboradores-admin/', 
+        views.ListColaboradoresAdmin.as_view(),
+        name='colaboradores-admin'
+    ),
+    path(
         'lista-colaboradores-por-area/<short_name>/', 
         views.ListarPorArea.as_view(),
         name='colaboradores_por_area'

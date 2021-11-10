@@ -1,18 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Eliminar Colaborador</h1>
+{% extends 'base.html' %}
+{% load static %}
 
-    <form method="POST">{% csrf_token %}
-        <h2>Confirmar si desea eliminar este Colaborador {{colaborador}}</h2>
-        <button type="submit">Confirmar</button>
-    </form>
 
-</body>
-</html>
+
+{% block title %}
+    Eliminar a {{colaborador}}       
+{% endblock title %}
+
+
+{% block content %}
+
+{% include 'includes/header.html' %}
+<div class="grid-container ">
+    <div class="grid-x">
+        <h3 class="cell" style="text-align: center;">Confirmar si desea eliminar este Colaborador {{colaborador}}</h3>
+        <form class="cell" method="POST">{% csrf_token %}
+            <div class="callout alert">
+                <h5>Por favor confirme que desea eliminar al colaborador(a) {{colaborador}}</h5>
+                <p>Recuerde que al confirmar la eliminación, se perderán todos los datos de forma permanente.</p>
+            </div>
+            <button type="submit" class="alert button">Confirmar</button>
+        </form>
+    </div>
+</div>
+
+{% endblock content %}

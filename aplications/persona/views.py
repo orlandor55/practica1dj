@@ -27,7 +27,11 @@ class ListColaboradores(ListView):
 
         return lista
 
-
+class ListColaboradoresAdmin(ListView):
+    template_name = 'persona/list_colaboradores_admin.html'
+    context_object_name = 'lista_colaboradores_admin'
+    paginate_by = 4
+    model = Colaborador
 
 
 class ListarPorArea(ListView):
@@ -60,7 +64,6 @@ class ListarPorKW(ListView):
         return lista
 
 
-
 class ListarHabilidades(ListView):
     template_name = "persona/habilidades_colaborador.html"
     context_object_name = 'habilidades'
@@ -90,7 +93,6 @@ class ListarPorCargo(ListView):
         return lista
 
 
-
 class ColaboradorDetailView(DetailView):
     model = Colaborador
     template_name = "persona/detalle_colaborador.html"
@@ -105,7 +107,6 @@ class ColaboradorDetailView(DetailView):
 
 class SuccessView(TemplateView):
     template_name = "persona/success.html"
-
 
 
 class ColaboradorCreateView(CreateView):
@@ -141,8 +142,7 @@ class ColaboradorUpdateView(UpdateView):
         'departamento', 
         'habilidad'
     ]
-    success_url = reverse_lazy('persona_app:actualizacion-exitosa')
-
+    success_url = reverse_lazy('persona_app:colaboradores-admin')
 
 
 class ColaboradorDeleteView(DeleteView):

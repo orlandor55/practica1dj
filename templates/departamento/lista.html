@@ -1,25 +1,23 @@
 {% extends 'base.html' %}
+
 {% load static %}
 
-
-
 {% block title %}
-    Listado de Colaboradores        
+    Departamentos        
 {% endblock title %}
 
 
 {% block content %}
-
+    
 {% include 'includes/header.html' %}
-
 
 <div class="grid-container ">
     <div class="grid-x ">
-        <h4 class="cell large-7 " style="text-align: center;">Lista de Colaboradores</h4>
+        <h4 class="cell large-7 " style="line-height: 90%; text-align: center;">Lista de Departamentos</h4>
         <form class="cell grid-x grid-margin-x" method="get"> {% csrf_token %}
             <div class="cell large-7">
 
-                    <input type="text" id="kword" name="kword" placeholder="Buscar colaborador...">
+                    <input type="text" id="kword" name="kword" placeholder="Buscar departamento...">
             </div>
             <div class="cell large-2">
 
@@ -32,20 +30,18 @@
                 <thead>
                   <tr>
                     <th width="50">id</th>
-                    <th width="150">Nombres</th>
-                    <th width="150">Apellidos</th>
-                    <th width="150">Departamenos</th>
-                    <th width="150">Acción</th>
+                    <th width="150">Departamento</th>
+                    <th width="150">Área</th>
+                    <th width="150">Acciones</th>
                   </tr>
                 </thead>
                 <tbody>
-                    {% for c in lista_colaboradores %}
+                    {% for d in lista_departamento %}
                     <tr>
-                            <td>{{c.id}}</td>
-                            <td>{{c.first_name}}</td>
-                            <td>{{c.last_name}}</td>
-                            <td>{{c.departamento}}</td>
-                            <td><a class="button secondary" href="{% url 'persona_app:detalle_colaborador' c.id %}">Ver</a>
+                            <td>{{d.id}}</td>
+                            <td>{{d.name}}</td>
+                            <td>{{d.short_name}}</td>
+                            <td><a class="button " href="{% url 'persona_app:colaboradores_por_area' d.short_name %}">Ver empleados</a>
                             </td>
                     </tr>
                     {% endfor %}
@@ -84,4 +80,6 @@
         </div>
     </div>
 </div>
+
+
 {% endblock content %}
