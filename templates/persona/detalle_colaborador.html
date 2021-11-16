@@ -18,12 +18,30 @@
             <div class="cell large-7">
                 <div class="card" style="width: 300px;">
                     <div class="card-divider">
-                        {{colaborador}} | {{colaborador.job}}
+                        {{colaborador}} | {{colaborador.job}} <!-- colaborador.get_job_display (cuando se usa chices) -->
                     </div>
-                    <img src="{% static 'img/avatar_vicky.jpeg' %}">
+                        
+                        {% if colaborador.foto %}
+                            <img src="{{colaborador.foto.url}}">
+                        {% else %}
+                            <img src="{% static 'img/avatar_vicky.jpeg' %}">
+
+                        {% endif %}
+                            
                     <div class="card-section">
                       <h4>{{colaborador}}</h4>
                       <p>{{colaborador.bio}}</p>
+                      <p><span class="label">Habilidades:</span></p>
+                            <ul class="vertical menu">
+                                
+                                {% for h in colaborador.habilidad.all %}
+
+                                    <li>{{h}}</li>
+                                    
+                                {% endfor %}
+                                    
+                            </ul>
+
                     </div>
                 </div>
                 <div class="cell large-5">

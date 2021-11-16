@@ -11,4 +11,4 @@ class NewDepartamentoForm(forms.Form):
         job = self.cleaned_data.get('job')
         if job == 'Contador' and job == 'Administrador' and job == 'Economista' and job == 'Otros' :
             return job
-        raise forms.ValidationError('Ingrese un numero mayor a 10')
+        raise forms.ValidationError('El cargo no est{a entre las opciones')

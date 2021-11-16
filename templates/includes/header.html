@@ -3,21 +3,22 @@
       <ul class="dropdown menu" data-dropdown-menu>
         <li class="menu-text">Sistema de Colaboradores</li>
         <li>
-          <a href="{% url 'persona_app:colaboradores' %}">Listar</a>
-          <!-- <ul class="menu vertical">
-            <li><a href="#">One</a></li>
-            <li><a href="#">Two</a></li>
-            <li><a href="#">Three</a></li>
-          </ul> -->
+          <a href="{% url 'persona_app:colaboradores-admin' %}">Colaboradores</a>
+          <ul class="menu vertical">
+            <li><a href="{% url 'persona_app:add-colaborador' %}">Añadir nuevo</a></li>
+            <li><a href="{% url 'persona_app:colaboradores-admin'%}">Modificar/Eliminar</a></li>
+          </ul>
         </li>
-        <li><a href="{% url 'departamento_app:lista_departamento' %}">Departamentos</a></li>
-        <li><a href="{% url 'persona_app:colaboradores-admin' %}">Administrar</a></li>
-      </ul>
+          <li><a href="{% url 'departamento_app:lista_departamento'%}">Departamentos</a></li>
+          <li><a href="{% url 'departamento_app:new_departamento'%}">Nvo Departamento</a></li>         
+            
+          </ul>
+      
     </div>
     <div class="top-bar-right">
       <ul class="menu">
         <li><input type="search" placeholder="Buscar Colaborador"></li>
-        <li><button type="button" class="button">Registrar Nuevo</button></li>
+        <li><a class="button" href="{% url 'persona_app:add-colaborador'%}">Registrar Nuevo</a></li>
       </ul>
     </div>
 </div>

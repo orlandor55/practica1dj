@@ -1,18 +1,60 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Añadir Colaborador</h1>
+{% extends 'base.html' %}
+{% load static %}
 
-    <form action="" method="POST">{% csrf_token %}
-        {{form.as_p}}
-        <button type="submit">Registrar Colaborador</button>
-    </form>
-   
-</body>
-</html>
+
+
+{% block title %}
+    Añadir colaborador
+{% endblock title %}
+
+
+{% block content %}
+
+{% include 'includes/header.html' %}
+
+
+<div class="grid-container ">
+
+    <div class="grid-x">
+        <h1 class="cell text-center ">Añadir Colaborador</h1>
+    </div>
+    <div class="cell">
+        <form class="grid-x grid-margin-x" method="POST" enctype="multipart/form-data">{% csrf_token %}
+            <div class="cell large-6">
+                <label>Nombre
+                    {{form.first_name}}
+                </label>
+            </div>
+            <div class="cell large-6">
+                <label>Apellido
+                    {{form.last_name}}
+                </label>
+            </div>
+            <div class="cell large-6">
+                <label>Cargo
+                    {{form.job}}
+                </label>
+            </div>
+            <div class="cell large-6">
+                <label>Área
+                    {{form.departamento}}
+                </label>
+            </div>
+            <div class="cell large-6">
+                <label>Avatar
+                    {{form.foto}}
+                </label>
+            </div>
+            <div class="cell large-6">
+                <label>Habilidades
+                    {{form.habilidad}}
+                </label>
+            </div>
+            <div class="cell large-6">
+                <button class="submit success button">Guardar cambios</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock content %} 

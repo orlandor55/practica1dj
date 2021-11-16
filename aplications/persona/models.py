@@ -22,10 +22,10 @@ class Habilidades(models.Model):
 class Colaborador(models.Model):
 
     JOB_CHOICE = (
-        ('Contador', 'Contador'),
-        ('Administrador', 'Administrador'),
-        ('Economista', 'Economista'),
-        ('Otros', 'Otros'),
+        ('contador', 'Contador'),
+        ('administrador', 'Administrador'),
+        ('economista', 'Economista'),
+        ('otros', 'Otros'),
     )
 
     first_name = models.CharField('Nombre', max_length=15)
@@ -33,7 +33,7 @@ class Colaborador(models.Model):
     full_name  = models.CharField('Nombre Completo', max_length=30, blank=True)
     job = models.CharField('Cargo', max_length=50, choices=JOB_CHOICE)
     departamento = models.ForeignKey(Departamento, on_delete=models.CASCADE)
-    foto = models.ImageField('Imagen de Perfil', upload_to='colaborador', blank=True, null=True, height_field=200, width_field=None, max_length=None)
+    foto = models.ImageField(upload_to='colaborador', blank=True, null=True)
     habilidad = models.ManyToManyField(Habilidades)
     bio = RichTextField()
 

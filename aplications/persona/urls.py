@@ -7,6 +7,28 @@ from . import views
 app_name = 'persona_app'
 
 urlpatterns = [
+
+    path(
+        'add-colaborador/', 
+        views.ColaboradorCreateView.as_view(),
+        name='add-colaborador'
+        
+    ),
+    path(
+        'success/', 
+        views.SuccessView.as_view(), 
+        name='registro_correcto'
+    ),
+    path(
+        'actualizar-colaborador/<pk>', 
+        views.ColaboradorUpdateView.as_view(), 
+        name='actualizar'
+    ),
+    path(
+        'update-success/', 
+        views.UpdateSuccessView.as_view(), 
+        name='actualizacion-exitosa'
+    ),
     path(
         'lista-colaboradores/', 
         views.ListColaboradores.as_view(),
@@ -41,25 +63,6 @@ urlpatterns = [
         'detalle-colaborador/<pk>', 
         views.ColaboradorDetailView.as_view(),
         name='detalle_colaborador'
-    ),
-    path(
-        'add-colaborador/', 
-        views.ColaboradorCreateView.as_view()
-    ),
-    path(
-        'success/', 
-        views.SuccessView.as_view(), 
-        name='registro_correcto'
-    ),
-    path(
-        'actualizar-colaborador/<pk>', 
-        views.ColaboradorUpdateView.as_view(), 
-        name='actualizar'
-    ),
-    path(
-        'update-success/', 
-        views.UpdateSuccessView.as_view(), 
-        name='actualizacion-exitosa'
     ),
     path(
         'eliminar-colaborador/<pk>', 
